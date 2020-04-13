@@ -3,12 +3,48 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Whitelist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
 class TokenController extends Controller
 {
+
+    public function create(Request $request)
+    {
+        $request->validate([
+            'cpf' => 'required|min:11|max:11|unique:users',
+            'email' => 'required|string|email|max:255|unique:users',
+            'name' => 'required|string|max:255',
+            'password' => 'required|string|min:8|confirmed',
+            'device_name' => 'required'
+        ]);
+
+        $cpfInWhitlist = Whitelist::where('cpf', $request->input('cpf'))->first();
+
+        if(!$cpfInWhitlist) {
+            throw ValidationException::withMessages([
+                'CPF' => ['CPF não consta na lista de permissão']
+            ]);
+        }
+
+        $user = User::create([
+            'cpf' => $request->input('cpf'),
+            'email' => $request->input('cpf'),
+            'name' => $request->input('name'),
+            'password' => Hash::make($request->input('password')),
+            'device_name' => $request->input('device_name'),
+        ]);
+
+        $token = $this->createToken($user, $request->input('device_name'));
+
+        return response([
+            'user' => $user,
+            'token' => $token
+        ], 201);
+    }
+
     public function token(Request $request)
     {
         $this->validateForm($request);
