@@ -22,7 +22,8 @@ class CreateRelatoriosTable extends Migration
             $table->boolean('teve_dificuldade_respirar')->nullable(false);
             $table->boolean('teve_contato')->nullable(false);
             $table->boolean('viajou')->nullable(false);
-            $table->boolean('local')->nullable();
+            $table->string('local')->nullable();
+            $table->string('anotacao')->nullable();
             $table->timestamps();
         });
     }

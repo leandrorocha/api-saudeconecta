@@ -16,6 +16,7 @@ class Relatorio extends Model
         'teve_dificuldade_respirar',
         'viajou',
         'local',
+        'anotacao'
     ];
 
 }
