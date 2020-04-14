@@ -24,5 +24,10 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 Route::post('/sanctum/token', 'TokenController@token');
+
 Route::post('/sanctum/create', 'TokenController@create');
+
+Route::post('password/reset', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+
+
 

@@ -95,7 +95,6 @@
     </column>
     <index id="29" parent="8" name="password_resets_email_index">
       <ColNames>email</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <column id="30" parent="9" name="id">
       <Position>1</Position>
@@ -141,13 +140,11 @@
     </column>
     <index id="39" parent="9" name="personal_access_tokens_token_unique">
       <ColNames>token</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="40" parent="9" name="personal_access_tokens_tokenable_type_tokenable_id_index">
       <ColNames>tokenable_type
 tokenable_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="41" parent="9">
       <ColNames>id</ColNames>
@@ -279,12 +276,10 @@ tokenable_id</ColNames>
     </column>
     <index id="70" parent="13" name="users_email_unique">
       <ColNames>email</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="71" parent="13" name="users_cpf_uindex">
       <ColNames>cpf</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="72" parent="13">
@@ -312,7 +307,6 @@ tokenable_id</ColNames>
     </column>
     <index id="77" parent="14" name="whitelist_cpf_unique">
       <ColNames>cpf</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="78" parent="14">

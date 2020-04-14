@@ -11,6 +11,14 @@ use Illuminate\Validation\ValidationException;
 class TokenController extends Controller
 {
 
+    public function getCSRFToken() {
+        return response([
+            '_token' => csrf_token()
+        ]);
+    }
+
+
+
     public function create(Request $request)
     {
         $request->validate([
@@ -110,5 +118,10 @@ class TokenController extends Controller
     public function createToken(User $user, $deviceName)
     {
         return $user->createToken($deviceName)->plainTextToken;
+    }
+
+    public function messages()
+    {
+        
     }
 }
