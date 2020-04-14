@@ -10,16 +10,25 @@ use Illuminate\Validation\ValidationException;
 
 class TokenController extends Controller
 {
-
     public function create(Request $request)
     {
+        $mensagens = [
+            'required' => 'O :attribute é obrigatório!',
+            'unique' => 'O :attribute já está sendo usado!',
+            'nome.min' => 'É necessário no mínimo 2 caracteres no nome!',
+            'cpf.min' => 'É necessário ter 11 caracteres no CPF!',
+            'cpf.max' => 'É necessário ter 11 caracteres no CPF!',
+            'email.email' => 'Digite um email válido!',
+            'password.min' => 'É necessário no mínimo 8 caracteres na senha!',
+        ];
+
         $request->validate([
             'cpf' => 'required|min:11|max:11|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'name' => 'required|string|max:255',
             'password' => 'required|string|min:8|confirmed',
             'device_name' => 'required'
-        ]);
+        ], $mensagens);
 
         $cpfInWhitlist = Whitelist::where('cpf', $request->input('cpf'))->first();
 
