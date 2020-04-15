@@ -15,7 +15,10 @@ class RelatorioController extends Controller
             $request->user(),
             $request->input('relatorio')
         );
-        return response($ids);
+        return response([
+            '_ids' => $ids,
+            '_total' => $this->getTotal()
+        ]);
     }
 
     private function validateForm(Request $request)
@@ -41,5 +44,10 @@ class RelatorioController extends Controller
         }
 
         return $ids;
+    }
+
+    private function getTotal()
+    {
+        return Relatorio::count();
     }
 }
