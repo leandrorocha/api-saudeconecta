@@ -24,6 +24,8 @@ class CreateRelatoriosTable extends Migration
             $table->boolean('viajou')->nullable(false);
             $table->string('local')->nullable();
             $table->string('anotacao')->nullable();
+            $table->double('latitude', 10, 8)->nullable();
+            $table->double('longitude', 11, 8)->nullable();
             $table->timestamps();
         });
     }
