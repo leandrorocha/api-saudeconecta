@@ -15,7 +15,7 @@ class CreateRelatoriosTable extends Migration
     {
         Schema::create('relatorios', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned();
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->boolean('teve_febre')->nullable(false);
             $table->boolean('teve_tosse')->nullable(false);
