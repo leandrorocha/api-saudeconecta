@@ -26,6 +26,7 @@ class CreateRelatoriosTable extends Migration
             $table->string('anotacao')->nullable();
             $table->double('latitude', 10, 8)->nullable();
             $table->double('longitude', 11, 8)->nullable();
+            $table->integer('tipo_caso');
             $table->timestamps();
         });
     }

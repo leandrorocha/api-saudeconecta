@@ -18,7 +18,8 @@ class Relatorio extends Model
         'local',
         'anotacao',
         'latitude',
-        'longitude'
+        'longitude',
+        'tipo_caso'
     ];
 
 }
