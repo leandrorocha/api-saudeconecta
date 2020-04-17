@@ -37,11 +37,11 @@ class RelatorioController extends Controller
         $ids = [];
 
         foreach ($relatorios as $relatorio) {
-            $relatorio['teve_febre'] = $relatorio['teve_febre'] ? 1 : 0;
-            $relatorio['teve_tosse'] = $relatorio['teve_tosse'] ? 1 : 0;
-            $relatorio['teve_contato'] = $relatorio['teve_contato'] ? 1 : 0;
-            $relatorio['teve_dificuldade_respirar'] = $relatorio['teve_dificuldade_respirar'] ? 1 : 0;
-            $relatorio['viajou'] = $relatorio['viajou'] ? 1 : 0;
+            $relatorio['teve_febre'] = $relatorio['teve_febre'] === true ? 1 : 0;
+            $relatorio['teve_tosse'] = $relatorio['teve_tosse'] === true ? 1 : 0;
+            $relatorio['teve_contato'] = $relatorio['teve_contato'] === true ? 1 : 0;
+            $relatorio['teve_dificuldade_respirar'] = $relatorio['teve_dificuldade_respirar'] === true ? 1 : 0;
+            $relatorio['viajou'] = $relatorio['viajou'] === true ? 1 : 0;
 
             $relatorioModel = new Relatorio($relatorio);
             $relatorioModel->user_id = $user->id;
