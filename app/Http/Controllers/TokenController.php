@@ -40,7 +40,7 @@ class TokenController extends Controller
 
         $user = User::create([
             'cpf' => $request->input('cpf'),
-            'email' => $request->input('cpf'),
+            'email' => $request->input('email'),
             'name' => $request->input('name'),
             'password' => Hash::make($request->input('password')),
             'device_name' => $request->input('device_name'),
