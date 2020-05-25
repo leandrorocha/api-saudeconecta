@@ -27,7 +27,7 @@ class RelatorioController extends Controller
             'relatorio.*.teve_febre' => 'required',
             'relatorio.*.teve_tosse' => 'required',
             'relatorio.*.teve_dificuldade_respirar' => 'required',
-            'relatorio.*.teve_contato' => 'required',
+            'relatorio.*.teve_dor_garganta' => 'required',
             'relatorio.*.teve_contato' => 'required',
         ]);
     }
@@ -40,8 +40,8 @@ class RelatorioController extends Controller
             $relatorio['teve_febre'] = $relatorio['teve_febre'] === 'true' ? 1 : 0;
             $relatorio['teve_tosse'] = $relatorio['teve_tosse'] === 'true' ? 1 : 0;
             $relatorio['teve_contato'] = $relatorio['teve_contato'] === 'true' ? 1 : 0;
+            $relatorio['teve_dor_garganta'] = $relatorio['teve_dor_garganta'] === 'true' ? 1 : 0;
             $relatorio['teve_dificuldade_respirar'] = $relatorio['teve_dificuldade_respirar'] === 'true' ? 1 : 0;
-            $relatorio['viajou'] = $relatorio['viajou'] === 'true' ? 1 : 0;
 
             $relatorioModel = new Relatorio($relatorio);
             $relatorioModel->user_id = $user->id;

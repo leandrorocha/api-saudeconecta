@@ -17,13 +17,14 @@ class CreateRelatoriosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->string('cpf')->nullable();
             $table->boolean('teve_febre')->nullable(false);
             $table->boolean('teve_tosse')->nullable(false);
+            $table->boolean('teve_dor_garganta')->nullable(false);
             $table->boolean('teve_dificuldade_respirar')->nullable(false);
             $table->boolean('teve_contato')->nullable(false);
-            $table->boolean('viajou')->nullable(false);
-            $table->string('local')->nullable();
             $table->string('anotacao')->nullable();
+            $table->string('logradouro')->nullable();
             $table->double('latitude', 10, 8)->nullable();
             $table->double('longitude', 11, 8)->nullable();
             $table->integer('tipo_caso');

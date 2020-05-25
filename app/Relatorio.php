@@ -10,13 +10,14 @@ class Relatorio extends Model
 
     protected $fillable = [
         'user_id',
+        'cpf',
         'teve_febre',
         'teve_tosse',
         'teve_contato',
+        'teve_dor_garganta',
         'teve_dificuldade_respirar',
-        'viajou',
-        'local',
         'anotacao',
+        'logradouro',
         'latitude',
         'longitude',
         'tipo_caso'
